@@ -1,6 +1,7 @@
 ﻿
 @{
     Layout = null;
+    var user = (Medical.Models.AdminLogin)System.Web.HttpContext.Current.Session["user"];
 }
 
 <!DOCTYPE html>
@@ -9,42 +10,47 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>TrangChu</title>
-</head>
-<style>
-    *{
-        padding:0;
-        margin:0;
-    }
-    .menu {
-        width: 100%;
-        background: green;
-    }
-
-        .menu ul {
-            list-style-type: none;
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
         }
 
-            .menu ul li {
-                padding: 10px 20px;
-                display: inline-block;
-                list-style-type: none;
-                color: black;
-                font-size: 20px;
-                font-weight: bold;
+        .menu {
+            width: 100%;
+            background: green;
+        }
 
+            .menu ul {
+                list-style-type: none;
             }
-            .menu ul li:hover {
-               cursor:pointer;
-               background:greenyellow;
-            }
-                .menu ul li a {
-                    color: white;
-                    text-decoration: none;
+
+                .menu ul li {
+                    padding: 10px 20px;
+                    display: inline-block;
+                    list-style-type: none;
+                    color: black;
+                    font-size: 20px;
+                    font-weight: bold;
                 }
-                 .menu ul li a:hover{
-                color:red;
-            }
-</style>
+
+                    .menu ul li:hover {
+                        cursor: pointer;
+                        background: greenyellow;
+                    }
+
+                    .menu ul li a {
+                        color: white;
+                        text-decoration: none;
+                    }
+
+                        .menu ul li a:hover {
+                            color: red;
+                        }
+    </style>
+
+</head>
+
 <body>
     <div class="menu">
         <ul>
@@ -65,6 +71,14 @@
             </li>
 
         </ul>
+
+    </div>
+    <div>
+
+        <h2>Trang chủ</h2>
+        <h3>@user.Username</h3>
+        <a href="@Url.Action("DangNhap","Account")" class="btn btn-warning">Đăng xuất</a>
+
     </div>
 </body>
 </html>
